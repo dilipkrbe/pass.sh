@@ -1,0 +1,28 @@
+#header {
+ z-index: 10;
+}
+#headertext {
+ margin-left:20px;
+}
+.uk-card.custom { 
+  background-color: #232344;
+  color: #ffffff;
+}
+.uk-card-title.custom {
+
+  background-color: #232344;
+  color: #ffffff;
+}
+input.uk-form-width-spsmall {
+  width:60px;
+}
+
+.blurry-text {
+  text-shadow: 0 0 20px #1e87f0;
+  color:transparent;
+}
+
+.blurry-text:hover {
+  text-shadow:none;
+  color:#1e87f0;
+}
