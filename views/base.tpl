@@ -20,5 +20,11 @@
 <div class="uk-container uk-container-small">
 {{!base}}
 </div>
+<div class="uk-container uk-container-small uk-text-center uk-margin-small-top">
+<a href="https://github.com/jadacyrus/pass.sh" target="_blank" class="uk-link-text">
+  <span uk-icon="icon: github-alt" class="uk-icon">
+  <span class="uk-text-middle">check out my code here!</span>
+</a>
+</div>
 </body>
 </html>
