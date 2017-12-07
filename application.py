@@ -1,4 +1,4 @@
-from bottle import Bottle, request, response, template, static_file
+from bottle import Bottle, request, response, template, static_file, hook, redirect
 import os, sys
 import settings
 import uuid
@@ -17,6 +17,8 @@ class PassSh(Bottle):
         self.route("/create", method = "POST", callback = self.create)
         self.route("/static/<filename>", method = "GET", callback = self.static)
         self.route("/healthz", method = "GET", callback = self.healthcheck)
+        self.add_hook("before_request", self.before_request)
+        self.add_hook("after_request", self.after_request)
 
         self.password_encrypter = PasswordEncrypter(self.ENV_ENCRYPTION_KEY)
         self.dynamo_backend = DynamoBackend(self.ENV_TABLE_NAME, self.ENV_AWS_REGION)
@@ -33,10 +35,20 @@ class PassSh(Bottle):
         self.ENV_BASE_URL = os.environ.get('BASE_URL', 'http://localhost:3000')
         self.ENV_AWS_REGION = os.environ.get('AWS_REGION', 'us-east-1')
         self.ENV_DEBUG = os.environ.get('ENV_DEBUG', False)
+        self.ENV_HANDLE_SSL_REDIRECT = os.environ.get('ENV_HANDLE_SSL_REDIRECT', True)
 
     def start(self):
         print('Password sharing service is alive')
         self.run(host = self.ENV_HOST, port = int(self.ENV_PORT), server = self.ENV_BACKEND, debug = int(self.ENV_DEBUG))
+
+    def after_request(self):
+        response.headers['strict-transport-security'] = "max-age=31536000; includeSubDomains"
+
+    def before_request(self):
+        if self.ENV_HANDLE_SSL_REDIRECT:
+            scheme = request.get_header('X-Forwarded-Proto', None)
+            if scheme and scheme != 'https':
+                return redirect(urljoin(self.ENV_BASE_URL, request.path))
 
     def index(self):
         return template('index')

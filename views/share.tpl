@@ -1,5 +1,5 @@
 % rebase('base.tpl')
-<div class="uk-card uk-card-default uk-card-body uk-animation-slide-top">
+<div class="uk-card uk-card-default uk-card-body uk-animation-slide-top custom2">
     <h4>ready to share!</h4>
    <div class="uk-alert-primary uk-alert uk-text-center">
     <p>{{url}}</p>

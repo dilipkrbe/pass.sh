@@ -1,5 +1,5 @@
 % rebase('base.tpl')
-<div class="uk-card uk-card-default uk-card-body uk-animation-slide-top">
+<div class="uk-card uk-card-default uk-card-body uk-animation-slide-top custom2">
     <h4>go ahead, i'm not looking...<span class="uk-icon uk-icon-image" style="background-image: url(/static/not-looking.png);"></span></h4>
     % if defined('error'):
       <div class="uk-alert-danger uk-text-center uk-alert">

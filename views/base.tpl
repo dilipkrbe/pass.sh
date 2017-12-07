@@ -3,12 +3,12 @@
 <title>pass.sh</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+<link rel="stylesheet" href="/static/uikit.min.css" />
 <link rel="stylesheet" href="/static/style.css" />
 <link rel="icon" type="image/png" href="/static/favicon.ico">
 <!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+<script src="/static/uikit.min.js"></script>
+<script src="/static/uikit-icons.min.js"></script>
 
 </head>
 <body>
